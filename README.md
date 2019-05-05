@@ -12,6 +12,15 @@
 UITableView初始化的时候UITableViewStyle使用plain样式, 不要用grouped样式(grouped默认不会悬停)
 实现代理方法:
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+CGFloat y = scrollView.contentOffset.y;
+if (y>64) {
+scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+}else if (y<64 && y >0){
+scrollView.contentInset = UIEdgeInsetsMake(y, 0, 0, 0);
+}
+}
+
 
 
 
